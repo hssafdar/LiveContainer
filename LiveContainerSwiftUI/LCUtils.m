@@ -78,7 +78,7 @@ Class LCSharedUtilsClass = nil;
     }
     
     // in LC2, attempt to guess LC1's LiveProcess extension
-    NSString *bundleID = [NSString stringWithFormat:@"com.kdt.livecontainer.%@.LiveProcess", self.teamIdentifier];
+    NSString *bundleID = [NSString stringWithFormat:@"com.hss.livecontainer.%@.LiveProcess", self.teamIdentifier];
     if([NSExtension extensionWithIdentifier:bundleID error:nil]) {
         return bundleID;
     }
@@ -278,7 +278,7 @@ Class LCSharedUtilsClass = nil;
 }
 
 + (void)changeMainExecutableTo:(NSString *)exec error:(NSError **)error {
-    NSURL *infoPath = [self.appGroupPath URLByAppendingPathComponent:@"Apps/com.kdt.livecontainer/App.app/Info.plist"];
+    NSURL *infoPath = [self.appGroupPath URLByAppendingPathComponent:@"Apps/com.hss.livecontainer/App.app/Info.plist"];
     NSMutableDictionary *infoDict = [NSMutableDictionary dictionaryWithContentsOfURL:infoPath];
     if (!infoDict) return;
 
@@ -354,7 +354,7 @@ Class LCSharedUtilsClass = nil;
 
     infoDict[@"CFBundleDisplayName"] = newBundleName;
     infoDict[@"CFBundleName"] = newBundleName;
-    infoDict[@"CFBundleIdentifier"] = [NSString stringWithFormat:@"com.kdt.%@", newBundleName];
+    infoDict[@"CFBundleIdentifier"] = [NSString stringWithFormat:@"com.hss.%@", newBundleName];
     infoDict[@"CFBundleURLTypes"][0][@"CFBundleURLSchemes"][0] = [newBundleName lowercaseString];
     while([infoDict[@"CFBundleURLTypes"] count] > 1) {
         [infoDict[@"CFBundleURLTypes"] removeLastObject];

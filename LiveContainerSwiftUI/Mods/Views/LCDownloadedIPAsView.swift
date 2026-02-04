@@ -44,12 +44,14 @@ struct LCDownloadedIPAsView: View {
         .navigationTitle("Downloaded IPAs")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            if !downloadedIPAs.isEmpty {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(role: .destructive) {
-                        showDeleteAllAlert = true
-                    } label: {
-                        Text("Delete All")
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Group {
+                    if !downloadedIPAs.isEmpty {
+                        Button(role: .destructive) {
+                            showDeleteAllAlert = true
+                        } label: {
+                            Text("Delete All")
+                        }
                     }
                 }
             }

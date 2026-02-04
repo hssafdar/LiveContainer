@@ -638,7 +638,7 @@ struct LCSettingsView: View {
                     kSecAttrAccount as String: "signingCertificate",
                     kSecReturnData as String: true,
                     kSecMatchLimit as String: kSecMatchLimitOne,
-                    kSecAttrService as String: "com.kdt.livecontainer",
+                    kSecAttrService as String: "com.hss.livecontainer",
                     kSecAttrSynchronizable as String: kSecAttrSynchronizableAny
                 ]
                 
