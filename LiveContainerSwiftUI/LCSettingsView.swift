@@ -303,6 +303,49 @@ struct LCSettingsView: View {
                     }
                 }
                 
+                // Advanced Section
+                Section {
+                    MetalHUDToggle()
+                    
+                    Toggle("Block Screenshots (Global)", isOn: Binding(
+                        get: { LCAdvancedModsManager.shared.blockScreenshotsGlobal },
+                        set: { LCAdvancedModsManager.shared.blockScreenshotsGlobal = $0 }
+                    ))
+                    
+                    Toggle("Disable Telemetry (Global)", isOn: Binding(
+                        get: { LCAdvancedModsManager.shared.disableTelemetryGlobal },
+                        set: { LCAdvancedModsManager.shared.disableTelemetryGlobal = $0 }
+                    ))
+                } header: {
+                    Text("Advanced")
+                } footer: {
+                    Text("Advanced features for power users. Metal HUD requires iOS Developer Mode. Telemetry blocking prevents apps from sending analytics data to common services.")
+                }
+                
+                // IPA Downloads Section
+                Section {
+                    Toggle("Auto-delete IPAs after install", isOn: Binding(
+                        get: { LCAdvancedModsManager.shared.autoDeleteIPAsAfterInstall },
+                        set: { LCAdvancedModsManager.shared.autoDeleteIPAsAfterInstall = $0 }
+                    ))
+                    
+                    NavigationLink {
+                        LCSavedLinksView()
+                    } label: {
+                        Text("Saved IPA Links")
+                    }
+                    
+                    NavigationLink {
+                        LCDownloadedIPAsView()
+                    } label: {
+                        Text("Downloaded IPAs")
+                    }
+                } header: {
+                    Text("IPA Downloads")
+                } footer: {
+                    Text("Manage IPA download links and downloaded files")
+                }
+                
                 Section {
                     HStack {
                         Image("GitHub")
@@ -697,6 +740,43 @@ struct LCSettingsView: View {
                 onSideStoreCertificateCallback(certificateData: certData, password: password)
                 
             }
+        }
+    }
+}
+
+// MARK: - Metal HUD Toggle Component
+
+struct MetalHUDToggle: View {
+    @StateObject private var metalHUDManager = MetalHUDManager.shared
+    @State private var showInstructions = false
+    
+    var body: some View {
+        HStack {
+            Toggle("Metal HUD", isOn: Binding(
+                get: { LCAdvancedModsManager.shared.metalHUDEnabled && metalHUDManager.isDeveloperModeEnabled },
+                set: { newValue in
+                    LCAdvancedModsManager.shared.metalHUDEnabled = newValue
+                    if newValue {
+                        metalHUDManager.enableMetalHUD()
+                    } else {
+                        metalHUDManager.disableMetalHUD()
+                    }
+                }
+            ))
+            .disabled(!metalHUDManager.isDeveloperModeEnabled)
+            
+            if #available(iOS 16.0, *), !metalHUDManager.isDeveloperModeEnabled {
+                Button {
+                    showInstructions = true
+                } label: {
+                    Image(systemName: "exclamationmark.triangle.fill")
+                        .foregroundColor(.orange)
+                }
+                .buttonStyle(.borderless)
+            }
+        }
+        .sheet(isPresented: $showInstructions) {
+            MetalHUDInstructionsView()
         }
     }
 }

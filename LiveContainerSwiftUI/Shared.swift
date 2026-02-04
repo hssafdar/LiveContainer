@@ -1034,3 +1034,37 @@ public enum LCTabIdentifier: Hashable {
     case settings
     case search
 }
+
+// MARK: - Per-App Mod Settings
+
+struct LCAppModSettings: Codable {
+    var spoofingEnabled: Bool = false
+    var spoofedUDID: String = UUID().uuidString
+    var spoofedUserAgent: String = ""
+    var spoofedIOSVersion: String = ""
+    var blockedDomains: [String] = []
+    var networkKillSwitch: Bool = false
+    var blockScreenshots: Bool = false
+    var autoAllowPermissions: Bool = false
+    var autoDenyTracking: Bool = true
+}
+
+// MARK: - Mod Settings Storage Helper
+
+extension LCAppModSettings {
+    static func load(for bundleID: String) -> LCAppModSettings {
+        let key = "LCAppModSettings_\(bundleID)"
+        guard let data = LCUtils.appGroupUserDefault?.data(forKey: key),
+              let settings = try? JSONDecoder().decode(LCAppModSettings.self, from: data) else {
+            return LCAppModSettings()
+        }
+        return settings
+    }
+    
+    func save(for bundleID: String) {
+        let key = "LCAppModSettings_\(bundleID)"
+        if let data = try? JSONEncoder().encode(self) {
+            LCUtils.appGroupUserDefault?.set(data, forKey: key)
+        }
+    }
+}
