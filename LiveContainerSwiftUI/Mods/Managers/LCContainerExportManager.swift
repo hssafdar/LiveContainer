@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import ZIPFoundation
 
 struct LCExportMetadata: Codable {
     let exportDate: Date
@@ -153,7 +152,7 @@ class LCContainerExportManager: ObservableObject {
         let metadataData = try JSONEncoder().encode(metadata)
         try metadataData.write(to: metadataURL)
         
-        // Progress: 80-100% - Create ZIP
+        // Progress: 80-100% - Create ZIP using PKZipArchiver
         let outputFileName = "\(appInfo.displayName() ?? "App")_\(Date().timeIntervalSince1970).ipa"
         let outputURL = fm.temporaryDirectory.appendingPathComponent(outputFileName)
         
@@ -162,8 +161,15 @@ class LCContainerExportManager: ObservableObject {
             try fm.removeItem(at: outputURL)
         }
         
-        // Create ZIP archive
-        try fm.zipItem(at: tempDir, to: outputURL)
+        // Use PKZipArchiver to create zip
+        let archiver = PKZipArchiver()
+        let zipData = archiver.zippedData(for: tempDir)
+        
+        guard let zipData = zipData else {
+            throw NSError(domain: "LCContainerExportManager", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to create ZIP archive"])
+        }
+        
+        try zipData.write(to: outputURL)
         
         DispatchQueue.main.async { self.exportProgress = 1.0 }
         
