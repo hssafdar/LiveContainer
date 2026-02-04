@@ -198,13 +198,6 @@
 			);
 			target = 174140392D9C0D0000F3F928 /* TweakLoader */;
 		};
-		17780E512E1C039D0077E636 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				src/litehook.c,
-			);
-			target = E1292BD52DCA3B660065E12D /* LiveContainerShared */;
-		};
 		17CAE6252F230449008B1977 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -287,7 +280,7 @@
 		174140162D9C0C1B00F3F928 /* TweakLoader */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (174140F52D9C1C9B00F3F928 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 174140F62D9C1C9B00F3F928 /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = TweakLoader; sourceTree = "<group>"; };
 		174140552D9C0D6D00F3F928 /* ZSign */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ZSign; sourceTree = "<group>"; };
 		174140AE2D9C0F4100F3F928 /* TestJITLess */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = TestJITLess; sourceTree = "<group>"; };
-		17780D3B2E1C02420077E636 /* litehook */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (17780E512E1C039D0077E636 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = litehook; sourceTree = "<group>"; };
+		17780D3B2E1C02420077E636 /* litehook */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = litehook; sourceTree = "<group>"; };
 		17B0F8452DE16FE4008110EA /* xcconfigs */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = xcconfigs; sourceTree = "<group>"; };
 		17CAE6182F230449008B1977 /* LaunchAppExtension */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (17CAE6252F230449008B1977 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = LaunchAppExtension; sourceTree = "<group>"; };
 		E1292AE72DCA3A660065E12D /* LiveProcess */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (E1292AF72DCA3A660065E12D /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = LiveProcess; sourceTree = "<group>"; };
@@ -982,7 +975,7 @@
 				CODE_SIGN_IDENTITY = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
+				DEVELOPMENT_TEAM = ZV5UG6Q2NA;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1000,7 +993,7 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kdt.livecontainer.SideStore;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hss.livecontainer.SideStore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -1024,7 +1017,7 @@
 				CODE_SIGN_IDENTITY = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
+				DEVELOPMENT_TEAM = ZV5UG6Q2NA;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1042,7 +1035,7 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kdt.livecontainer.SideStore;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hss.livecontainer.SideStore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -1063,10 +1056,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = ZV5UG6Q2NA;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1106,10 +1100,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = ZV5UG6Q2NA;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1284,7 +1279,7 @@
 				CODE_SIGN_IDENTITY = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
+				DEVELOPMENT_TEAM = ZV5UG6Q2NA;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LaunchAppExtension/Info.plist;
@@ -1319,7 +1314,7 @@
 				CODE_SIGN_IDENTITY = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
+				DEVELOPMENT_TEAM = ZV5UG6Q2NA;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LaunchAppExtension/Info.plist;
@@ -1384,7 +1379,7 @@
 				CODE_SIGNING_REQUIRED = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
+				DEVELOPMENT_TEAM = AAAAA11111;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -1455,7 +1450,7 @@
 				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
+				DEVELOPMENT_TEAM = AAAAA11111;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -1492,7 +1487,7 @@
 				CODE_SIGN_IDENTITY = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
+				DEVELOPMENT_TEAM = ZV5UG6Q2NA;
 				ENABLE_DEBUG_DYLIB = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1516,6 +1511,7 @@
 				NEW_SETTING = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.hss.livecontainer.ZV5UG6Q2NA;
 				PRODUCT_NAME = LiveContainer;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -1537,7 +1533,7 @@
 				CODE_SIGN_IDENTITY = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
+				DEVELOPMENT_TEAM = ZV5UG6Q2NA;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Resources/Frameworks",
@@ -1563,6 +1559,7 @@
 					_LiveContainerMainC,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.hss.livecontainer;
 				PRODUCT_NAME = LiveContainer;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -1581,7 +1578,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
+				DEVELOPMENT_TEAM = ZV5UG6Q2NA;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				EXECUTABLE_EXTENSION = "";
 				EXECUTABLE_NAME = LiveProcess;
@@ -1594,6 +1591,8 @@
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "The guest app is requesting for this permission.";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "The guest app is requesting for this permission.";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "The guest app is requesting for this permission.";
+				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "The guest app is requesting for this permission.";
+				INFOPLIST_KEY_NSCalendarsWriteOnlyAccessUsageDescription = "The guest app is requesting for this permission.";
 				INFOPLIST_KEY_NSCameraUsageDescription = "The guest app is requesting for this permission.";
 				INFOPLIST_KEY_NSContactsUsageDescription = "The guest app is requesting for this permission.";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "The guest app is requesting for this permission.";
@@ -1616,6 +1615,7 @@
 				INFOPLIST_KEY_NSNearbyInteractionUsageDescription = "The guest app is requesting for this permission.";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "The guest app is requesting for this permission.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "The guest app is requesting for this permission.";
+				INFOPLIST_KEY_NSRemindersFullAccessUsageDescription = "The guest app is requesting for this permission.";
 				INFOPLIST_KEY_NSSensorKitUsageDescription = "The guest app is requesting for this permission.";
 				INFOPLIST_KEY_NSSiriUsageDescription = "The guest app is requesting for this permission.";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "The guest app is requesting for this permission.";
@@ -1629,6 +1629,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.hss.livecontainer.ZV5UG6Q2NA.LiveProcess;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -1648,7 +1649,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = "$(DEVELOPMENT_TEAM)";
+				DEVELOPMENT_TEAM = ZV5UG6Q2NA;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				EXECUTABLE_EXTENSION = "";
 				EXECUTABLE_NAME = LiveProcess;
@@ -1661,6 +1662,8 @@
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "The guest app is requesting for this permission.";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "The guest app is requesting for this permission.";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "The guest app is requesting for this permission.";
+				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "The guest app is requesting for this permission.";
+				INFOPLIST_KEY_NSCalendarsWriteOnlyAccessUsageDescription = "The guest app is requesting for this permission.";
 				INFOPLIST_KEY_NSCameraUsageDescription = "The guest app is requesting for this permission.";
 				INFOPLIST_KEY_NSContactsUsageDescription = "The guest app is requesting for this permission.";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "The guest app is requesting for this permission.";
@@ -1683,6 +1686,7 @@
 				INFOPLIST_KEY_NSNearbyInteractionUsageDescription = "The guest app is requesting for this permission.";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "The guest app is requesting for this permission.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "The guest app is requesting for this permission.";
+				INFOPLIST_KEY_NSRemindersFullAccessUsageDescription = "The guest app is requesting for this permission.";
 				INFOPLIST_KEY_NSSensorKitUsageDescription = "The guest app is requesting for this permission.";
 				INFOPLIST_KEY_NSSiriUsageDescription = "The guest app is requesting for this permission.";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "The guest app is requesting for this permission.";
@@ -1709,11 +1713,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "$(inherited)";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = ZV5UG6Q2NA;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1733,7 +1737,7 @@
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				OTHER_CFLAGS = "-fcommon";
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kdt.livecontainer.LiveContainerShared;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hss.livecontainer.LiveContainerShared;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				STRIP_STYLE = debugging;
@@ -1750,11 +1754,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "$(inherited)";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = ZV5UG6Q2NA;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1775,7 +1779,7 @@
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
 				OTHER_CFLAGS = "-fcommon";
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kdt.livecontainer.LiveContainerShared;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hss.livecontainer.LiveContainerShared;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				STRIP_STYLE = debugging;
