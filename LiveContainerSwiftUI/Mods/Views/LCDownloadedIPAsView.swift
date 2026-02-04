@@ -5,6 +5,7 @@
 //  Created by LiveContainer on 2024/11/01.
 //
 
+import Foundation
 import SwiftUI
 
 struct LCDownloadedIPAsView: View {
