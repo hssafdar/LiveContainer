@@ -1054,7 +1054,7 @@ struct LCAppModSettings: Codable {
 extension LCAppModSettings {
     static func load(for bundleID: String) -> LCAppModSettings {
         let key = "LCAppModSettings_\(bundleID)"
-        guard let data = LCUtils.appGroupUserDefault?.data(forKey: key),
+        guard let data = LCUtils.appGroupUserDefault.data(forKey: key),
               let settings = try? JSONDecoder().decode(LCAppModSettings.self, from: data) else {
             return LCAppModSettings()
         }
@@ -1064,7 +1064,7 @@ extension LCAppModSettings {
     func save(for bundleID: String) {
         let key = "LCAppModSettings_\(bundleID)"
         if let data = try? JSONEncoder().encode(self) {
-            LCUtils.appGroupUserDefault?.set(data, forKey: key)
+            LCUtils.appGroupUserDefault.set(data, forKey: key)
         }
     }
 }

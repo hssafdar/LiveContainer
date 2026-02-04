@@ -29,7 +29,7 @@ struct LCExportIPAView: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Container Selection")) {
+                Section {
                     if containers.isEmpty {
                         Toggle("No container data", isOn: .constant(false))
                             .disabled(true)
@@ -45,13 +45,17 @@ struct LCExportIPAView: View {
                             }
                         }
                     }
+                } header: {
+                    Text("Container Selection")
                 }
                 
                 if selectedContainerIndex != nil {
-                    Section(header: Text("Include Container Data")) {
+                    Section {
                         Toggle("Documents Folder", isOn: $includeDocuments)
                         Toggle("Library Folder", isOn: $includeLibrary)
                         Toggle("Caches", isOn: $includeCaches)
+                    } header: {
+                        Text("Include Container Data")
                     } footer: {
                         Text("Select which container folders to include in the exported IPA")
                     }

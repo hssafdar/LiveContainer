@@ -43,7 +43,7 @@ class SavedLinksManager: ObservableObject {
     // MARK: - Persistence
     
     func loadLinks() {
-        guard let data = defaults?.data(forKey: storageKey),
+        guard let data = defaults.data(forKey: storageKey),
               let links = try? JSONDecoder().decode([SavedIPALink].self, from: data) else {
             savedLinks = []
             return
@@ -53,7 +53,7 @@ class SavedLinksManager: ObservableObject {
     
     func saveLinks() {
         guard let data = try? JSONEncoder().encode(savedLinks) else { return }
-        defaults?.set(data, forKey: storageKey)
+        defaults.set(data, forKey: storageKey)
     }
     
     // MARK: - CRUD Operations

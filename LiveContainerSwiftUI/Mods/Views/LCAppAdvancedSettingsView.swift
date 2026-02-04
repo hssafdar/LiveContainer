@@ -23,7 +23,7 @@ struct LCAppAdvancedSettingsView: View {
     var body: some View {
         Form {
             // Device Spoofing Section
-            Section(header: Text("Device Spoofing")) {
+            Section {
                 Toggle("Enable Spoofing", isOn: $modSettings.spoofingEnabled)
                     .onChange(of: modSettings.spoofingEnabled) { _ in
                         saveSettings()
@@ -68,10 +68,12 @@ struct LCAppAdvancedSettingsView: View {
                         saveSettings()
                     }
                 }
+            } header: {
+                Text("Device Spoofing")
             }
             
             // Network Section
-            Section(header: Text("Network")) {
+            Section {
                 Toggle("Network Kill Switch", isOn: $modSettings.networkKillSwitch)
                     .onChange(of: modSettings.networkKillSwitch) { _ in
                         saveSettings()
@@ -81,12 +83,14 @@ struct LCAppAdvancedSettingsView: View {
                     .onChange(of: modSettings.blockScreenshots) { _ in
                         saveSettings()
                     }
+            } header: {
+                Text("Network")
             } footer: {
                 Text("Network Kill Switch blocks all network access for this app")
             }
             
             // Domain Blocking Section
-            Section(header: Text("Domain Blocking")) {
+            Section {
                 ForEach(modSettings.blockedDomains, id: \.self) { domain in
                     HStack {
                         Image(systemName: "xmark.shield.fill")
@@ -116,12 +120,14 @@ struct LCAppAdvancedSettingsView: View {
                     }
                     .disabled(newDomain.isEmpty)
                 }
+            } header: {
+                Text("Domain Blocking")
             } footer: {
                 Text("Blocked domains will have their network requests denied. Enter domain names like 'example.com' without https://")
             }
             
             // Permissions Section
-            Section(header: Text("Permissions")) {
+            Section {
                 Toggle("Auto-deny Tracking", isOn: $modSettings.autoDenyTracking)
                     .onChange(of: modSettings.autoDenyTracking) { _ in
                         saveSettings()
@@ -131,6 +137,8 @@ struct LCAppAdvancedSettingsView: View {
                     .onChange(of: modSettings.autoAllowPermissions) { _ in
                         saveSettings()
                     }
+            } header: {
+                Text("Permissions")
             } footer: {
                 Text("Auto-deny tracking automatically denies App Tracking Transparency requests. Auto-allow permissions automatically grants permission requests (use with caution).")
             }
