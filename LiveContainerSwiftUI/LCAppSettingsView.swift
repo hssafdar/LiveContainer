@@ -40,6 +40,7 @@ struct LCAppSettingsView: View {
     @State private var errorShow = false
     @State private var errorInfo = ""
     @State private var selectUnusedContainerSheetShow = false
+    @State private var showExportSheet = false
     
     @EnvironmentObject private var sharedModel : SharedModel
     
@@ -372,6 +373,40 @@ struct LCAppSettingsView: View {
             } header: {
                 Text("lc.common.statistics")
             }
+            
+            // Advanced Section
+            Section {
+                NavigationLink {
+                    LCAppAdvancedSettingsView(model: model)
+                } label: {
+                    Text("Advanced Settings")
+                }
+            } header: {
+                Text("Advanced")
+            }
+            
+            // App Management Section
+            Section {
+                Button("Reinstall App") {
+                    Task { await reinstallApp() }
+                }
+                .disabled(model.isAppRunning)
+                
+                NavigationLink {
+                    LCReinstallWithContainerView(model: model)
+                } label: {
+                    Text("Reinstall with Container")
+                }
+                .disabled(model.isAppRunning)
+                
+                Button("Export as IPA") {
+                    showExportSheet = true
+                }
+            } header: {
+                Text("App Management")
+            } footer: {
+                Text("Reinstall app to apply updates without losing data. Export creates a shareable IPA file.")
+            }
 
         }
         .navigationTitle(appInfo.displayName())
@@ -445,6 +480,9 @@ struct LCAppSettingsView: View {
         }
         .sheet(isPresented: $selectUnusedContainerSheetShow) {
             LCSelectContainerView(isPresent: $selectUnusedContainerSheetShow, delegate: self)
+        }
+        .sheet(isPresented: $showExportSheet) {
+            LCExportIPAView(model: model)
         }
         .fileImporter(isPresented: $choosingStorage, allowedContentTypes: [.folder]) { result in
             Task { await importDataStorage(result: result) }
@@ -675,6 +713,17 @@ struct LCAppSettingsView: View {
         
         do {
             try await model.forceResign()
+        } catch {
+            errorInfo = error.localizedDescription
+            errorShow = true
+        }
+    }
+    
+    func reinstallApp() async {
+        // Reinstall without losing container data
+        do {
+            try await model.forceResign()
+            // TODO: Trigger app reinstallation via notification or app delegate
         } catch {
             errorInfo = error.localizedDescription
             errorShow = true
