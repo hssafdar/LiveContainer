@@ -129,8 +129,11 @@ struct LCDownloadedIPAsView: View {
     }
     
     private func installIPA(_ ipa: DownloadedIPA) {
-        // TODO: Trigger IPA installation
-        print("Installing IPA: \(ipa.fileName)")
+        // Trigger IPA installation via notification
+        NotificationCenter.default.post(
+            name: NSNotification.InstallAppNotification,
+            object: ["url": ipa.url]
+        )
     }
 }
 

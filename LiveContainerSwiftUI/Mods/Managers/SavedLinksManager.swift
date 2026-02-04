@@ -149,7 +149,7 @@ class SavedLinksManager: ObservableObject {
             return
         }
         
-        let downloadTask = URLSession.shared.downloadTask(with: url) { tempURL, response, error in
+        let downloadTask = URLSession.shared.downloadTask(with: url) { [weak self] tempURL, response, error in
             if let error = error {
                 completion(.failure(error))
                 return
@@ -183,9 +183,16 @@ class SavedLinksManager: ObservableObject {
             }
         }
         
-        // Track progress
-        let observation = downloadTask.progress.observe(\.fractionCompleted) { progress, _ in
+        // Track progress - observation will be automatically cleaned up when task completes
+        var observation: NSKeyValueObservation? = nil
+        observation = downloadTask.progress.observe(\.fractionCompleted) { [weak downloadTask] progress, _ in
             progressHandler(progress.fractionCompleted)
+            
+            // Clean up observation when complete
+            if progress.fractionCompleted >= 1.0 {
+                observation?.invalidate()
+                observation = nil
+            }
         }
         
         downloadTask.resume()

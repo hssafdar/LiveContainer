@@ -205,8 +205,11 @@ struct SavedLinkRow: View {
                 
                 switch result {
                 case .success(let url):
-                    // TODO: Trigger IPA installation
-                    print("Downloaded IPA to: \(url.path)")
+                    // Trigger IPA installation via notification
+                    NotificationCenter.default.post(
+                        name: NSNotification.InstallAppNotification,
+                        object: ["url": url]
+                    )
                 case .failure(let error):
                     print("Download failed: \(error.localizedDescription)")
                 }
